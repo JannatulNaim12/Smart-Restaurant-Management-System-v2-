@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Resto | Management v2.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="notification" class="notification hidden"></div>
+
+    <header class="app-header">
+        <div class="header-content">
+            <div class="brand">
+                <i class="fas fa-utensils"></i>
+                <h1>Smart <span>Resto</span></h1>
+            </div>
+            <p class="subtitle">Kitchen Management System v2.0</p>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <section class="card form-section">
+            <div class="card-header">
+                <h2><i class="fas fa-plus"></i> <span id="formTitle">Place New Order</span></h2>
+            </div>
+            <form id="orderForm" class="order-form">
+                <input type="hidden" id="editOrderId">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Table Number</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-hashtag"></i>
+                            <input type="number" id="tableNumber" placeholder="e.g. 05" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Select Item</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-hamburger"></i>
+                            <select id="orderItem" required>
+                                <option value="">Select a dish...</option>
+                                <option value="Classic Burger">Classic Burger - $12</option>
+                                <option value="Margherita Pizza">Margherita Pizza - $15</option>
+                                <option value="Pasta Alfredo">Pasta Alfredo - $14</option>
+                                <option value="Iced Lemon Tea">Iced Lemon Tea - $4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-footer">
+                    <button type="submit" id="submitBtn" class="btn-primary">Send to Kitchen</button>
+                    <button type="button" id="cancelEdit" class="btn-cancel hidden">Cancel Edit</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="card table-section">
+            <div class="card-header">
+                <h2><i class="fas fa-clock"></i> Live Kitchen Orders</h2>
+                <div class="status-legend">
+                    <span class="dot pulse"></span> Live Tracking
+                </div>
+            </div>
+            <div class="table-container">
+                <table id="ordersTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Table</th>
+                            <th>Order Item</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
